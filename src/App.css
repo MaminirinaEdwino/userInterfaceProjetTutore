@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme-1: #2c98a0;
+  --color-theme-2: #98b2a3;
+  --color-theme-3: #4cc8a3;
+  --color-theme-4: #67bda5;
+  --color-theme-5: #89e8ac;
+  --color-theme-6: #80f2bc;
+  --animate-fade: animationLandingIntro 5s linear infinite;
+}
+.teste{
+    background-image: url('assets/bg.jpg');
+}
+@keyframes animationLandingIntro {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
