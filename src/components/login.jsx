@@ -29,12 +29,12 @@ export default function Login() {
     }
     return <section className="teste min-h-[100vh] text-theme-6 flex flex-col items-center justify-center">
     <LandingPageHeader option={"signin"}/>
-    <div className="flex flex-col items-center p-5 rounded-sm backdrop-blur-sm bg-theme-1/10 max-w-[95%]">
-    <h2 className="text-2xl font-bold">Log in</h2>
+    <div className="flex flex-col items-center p-5 rounded-sm backdrop-blur-sm  max-w-[95%]">
+    <h2 className="text-2xl font-bold m-5">Log in</h2>
     <form onSubmit={handleConnection} className="flex flex-col">
         <InputComponents type={"text"} value={username} onchange={setUsername} placeholder={"Username"} label={"Username"} id={"username"} name={"username"}/>
         <InputComponents type={"password"} value={password} onchange={setPassword} placeholder={"Mot de passe"} label={"Mot de passe"} id={"password"} name={"password"}/>
-        <button className="p-2 px-4 bg-theme-1 rounded-md w-fit mx-auto my-1 hover:bg-transparent border transition-all duration-100">Se Connecter</button>
+        <button className="p-2 px-4 bg-theme-1 rounded-lg shadow-xl shadow-theme-1/15  mx-auto my-1 hover:bg-transparent border transition-all duration-100 text-theme-2 w-full">Se Connecter</button>
         {errorState && <div className="text-red-500 text-center ">* Veuillez re-saisir votre username ou votre mot de passe</div> }
     </form>
 

@@ -2,7 +2,7 @@ import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { NavLink } from "react-router-dom"
 import bg from "../assets/logo.png"
 export default function LandingPageHeader({option}) {
-	return <header className="flex justify-between p-2 px-4 items-center absolute top-0 w-full border-b-2 backdrop-blur-2xl bg-theme-1/20">
+	return <header className="flex justify-between p-2 px-4 items-center absolute top-0 w-full border-b backdrop-blur-2xl ">
 		<h1 className="text-xl font-bold flex  items-center">
 			<img src={bg}
 				alt=""

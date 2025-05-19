@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Footer from "./footer";
 import NavMenu from "./navMenu";
 import NewPortfolio from "./newPortfolio";
+import { Input } from "./ui/input";
+import PortfolioList from "./portfolioList";
+import Loader from "./loader";
+import AboutMe from "./aboutme";
 
 export default function UserInterface() {
     const navigateur = useNavigate()
@@ -29,11 +33,12 @@ export default function UserInterface() {
         } 
         user_me()
     }, [])
-    return <section className="teste min-h-[100vh] bg-theme-1/20 flex flex-col items-center justify-center text-theme-6">
+    return <section className="teste min-h-[100vh]  flex flex-col items-center justify-center text-theme-6">
         <LandingPageHeader option={"logout"}/>
         {choice === "home" && GetHomeComponents(user)}
-
         {choice === "new" && <NewPortfolio user={user}/>}
+        {choice === "portfolio" && GetPortfolioList(user)}
+        {choice === "me" && <AboutMe user={user}/>}
         <NavMenu choice={choice} setChoice={setChoice}/>
 
     </section> 
@@ -41,8 +46,14 @@ export default function UserInterface() {
 
 function GetHomeComponents(user) {
     const HomeComponents = lazy(()=>import('./homeComponents'))
-    return <Suspense fallback={<div>Loading . . .</div>}> 
+    return <Suspense fallback={<Loader />}> 
         <HomeComponents user={user}/>
     </Suspense>
+}
 
+function GetPortfolioList(user){
+    const PortfolioList = lazy(()=>import("./portfolioList"))
+    return <Suspense fallback={<Loader/>}>
+        <PortfolioList user={user}/>
+    </Suspense>
 }

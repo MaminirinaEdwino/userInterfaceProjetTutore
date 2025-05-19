@@ -5,9 +5,10 @@ import TextAreaComponents from "./TexteAreaComponents";
 import InputArrayComponents from "./InputArrayComponents";
 import InputArraySimpleComponents from "./InputArraySImpleComponents";
 import ModalSuccessCreatePortfolio from "./modalSuccesCreatePortfolio";
+import { CardTitle } from "./ui/card";
 
 export default function NewPortfolio({user}) {
-	const [step, setStep] = useState(1)
+	const [step, setStep] = useState(3)
     const [displayModal, setDisplayModal] = useState("none")
 	const [template, setTemplate] = useState(0)
 	const [loisir, setLoisir] = useState([])
@@ -90,7 +91,7 @@ export default function NewPortfolio({user}) {
 			setStep(step - 1)
 		}
 	}
-	return <section className="  bg-theme-1/50 backdrop-blur-2xl p-3 flex flex-col items-center justify-center text-white max-w-[95%] rounded-sm w-[95%]">
+	return <section className="  border-2 p-3 flex flex-col items-center justify-center text-theme-3 max-w-[95%] rounded-sm w-[95%]">
         <ModalSuccessCreatePortfolio display={displayModal}/>
 		<h1 className="text-3xl font-bold text-center ">Nouveau Portfolio</h1>
 		<form className="flex flex-col gap-4 mt-10 w-full">
@@ -121,7 +122,7 @@ export default function NewPortfolio({user}) {
 					value={template}
 					onchange={setTemplate}
 					label={"Choix Template"}/> {
-				titre != "" && domaine != "" && lettre_introduction != "" && template != 0 && <button className="bg-theme-6 text-theme-1 p-2 rounded-md"
+				titre != "" && domaine != "" && lettre_introduction != "" && template != 0 && <button className="bg-theme-6 text-theme-1 border border-theme-1 p-2 rounded-md"
 					onClick={handleNextStep}>Suivant</button>
 			} </div>
 		}
@@ -143,7 +144,7 @@ export default function NewPortfolio({user}) {
 		}
 			{
 			step === 3 && <div className="step3">
-				Inserer vos experience_professionnelle
+				<CardTitle className={'text-center mb-2'}>Inserer vos experience professionnelle</CardTitle>
 				<InputArrayComponents id={"xp"}
 					label={"Expérience Professionnel"}
 					name={"xp"}
@@ -159,7 +160,7 @@ export default function NewPortfolio({user}) {
 		}
         {
 			step === 4 && <div className="step4">
-				Inserer vos skills
+				<CardTitle className={"text-center mb-2"}>Inserer vos skills</CardTitle>
 				<InputArrayComponents id={"skills"}
 					label={"Skills"}
 					name={"skills"}
@@ -175,7 +176,7 @@ export default function NewPortfolio({user}) {
 		}
         {
 			step === 5 && <div className="step5">
-				Inserer les langues maitrisées
+				<CardTitle className={"text-center mb-2"}>Inserer les langues maitrisées</CardTitle>
 				<InputArrayComponents id={"langues"}
 					label={"Langues"}
 					name={"lang"}
@@ -191,7 +192,7 @@ export default function NewPortfolio({user}) {
 		}
         {
             step === 6 && <div className="step6">
-            Inserer Vos loisirs
+            <CardTitle className={"text-center mb-2"}>Inserer Vos loisirs</CardTitle>
             <InputArraySimpleComponents id={"loirsir"}
                 label={"Loisir"}
                 name={"lanloisirg"}
@@ -203,9 +204,9 @@ export default function NewPortfolio({user}) {
         } </div>
         }
         {
-            step === 7 && <div className="step7">
-            Ajoutez votre photo de profil pour le portfolio
-            <input type="file" id="photo" name="photo" />
+            step === 7 && <div className="step7 flex flex-col">
+            <CardTitle>Ajoutez votre photo de profil pour le portfolio</CardTitle>
+            <input type="file" id="photo" name="photo" className="bg-theme-3/10 text-center p-2 rounded-lg m-1"/>
              {
             loisir.length > 0 && <button onClick={umploadFile}>Suivant</button>
         } </div>

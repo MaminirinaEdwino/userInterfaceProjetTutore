@@ -49,9 +49,9 @@ export default function SignIn() {
     return <section className="teste min-h-[100vh] text-theme-6 flex flex-col items-center justify-center">
         <LandingPageHeader option={"login"}/>
         
-        <form action="" onSubmit={handleConnection} className="flex flex-col items-center p-5 rounded-sm backdrop-blur-sm bg-theme-1/50 max-w-[95%]">
-        <h2 className="text-2xl font-bold text-center">Sign In  </h2>
-        <h2 className="text-sm">Etape {step}/2</h2>
+        <form action="" onSubmit={handleConnection} className="flex flex-col items-center p-5 rounded-sm  max-w-[95%]">
+        <h2 className="text-2xl font-bold text-center text-theme-3/70">Sign In  </h2>
+        <h2 className="text-sm text-theme-3/70">Etape {step}/2</h2>
             {step == 1 && <div className="step1 flex flex-col ">
                 
                 <InputComponents type={"text"} name={"firstname"} label={"Prénom"} placeholder={"Prénom"} id={"prenom"} onchange={setFirstname} value={firstname} />
@@ -59,7 +59,7 @@ export default function SignIn() {
                 <InputComponents type={"text"} name={"username"} label={"Nom d'utilisateur"} placeholder={"Nom d'utilisateur"} id={"username"} onchange={setUsername} value={username} />
                 <InputComponents type={"email"} name={"email"} label={"Email"} placeholder={"Email"} id={"email"} onchange={setEmail} value={email} />
                 <InputComponents type={"password"} name={"password"} label={"Mot de passe"} placeholder={"Mot de passe"} id={"password"} onchange={setPassword} value={password} />
-                <span onClick={(e)=>setStep(2)} className="bg-theme-1 p-2 px-5 m-2 w-fit rounded border hover:bg-transparent transition-all duration-100">Suivant</span>
+                <span onClick={(e)=>setStep(2)} className="bg-theme-1 p-2 px-5 m-2 w-full rounded border hover:bg-transparent transition-all duration-100 mx-auto text-theme-2 text-center">Suivant</span>
             </div>}
             {step == 2 && <div className="step2">
                 <InputComponents type={"text"} name={"address"} label={"Adresse"} placeholder={"Adresse"} id={"address"} onchange={setAddress} value={address} />
@@ -67,7 +67,9 @@ export default function SignIn() {
                 <InputComponents type={"number"} name={"age"} label={"Age"} placeholder={"Age"} id={"age"} onchange={SetAge} value={age} />
                 <InputComponents type={"text"} name={"facebook"} label={"Facebook"} placeholder={"Facebook"} id={"facebook"} onchange={setFacebook} value={facebook} />
                 <InputComponents type={"text"} name={"linkedin"} label={"LinkedIn"} placeholder={"LinkedIn"} id={"linkedin"} onchange={setLinkedIn} value={linkedIn} />
-                <span onClick={(e)=>setStep(1)} className="bg-theme-1 p-2 px-5 m-2 w-fit rounded border hover:bg-transparent transition-all duration-100">Précedent</span><button className="bg-theme-1 p-2 px-5 m-2 w-fit rounded border hover:bg-transparent transition-all duration-100">S'inscrire</button>
+                <div className="flex f">
+                <span onClick={(e)=>setStep(1)} className="bg-theme-1 p-2 px-5  w-full rounded-lg hover:bg-transparent transition-all duration-100 border text-theme-2 mx-auto text-center shadow-xl shadow-theme-1/15">Précedent</span><button className="bg-theme-1 p-2 px-5  w-full rounded-lg border hover:bg-transparent transition-all duration-100 text-theme-2 mx-auto shadow-xl shadow-theme-1/15">S'inscrire</button>
+                </div>
             </div>}
 
         </form>

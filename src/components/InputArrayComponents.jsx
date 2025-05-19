@@ -1,4 +1,5 @@
 import {useState} from "react"
+import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card"
 
 export default function InputArrayComponents({
 	id,
@@ -44,29 +45,38 @@ export default function InputArrayComponents({
 		<div id="listeInputParcours">
 			{
 			value.map((item, index) => (
-				<div key={item+index}>
-
-					Parcour {
+				<div key={item+index} className="flex flex-wrap m-1">
+					
+				<Card className={"w-full flex flex-col gap-2 rounded-lg "}>
+					<CardHeader>
+						<CardTitle>Parcour {
 					index + 1
-				}
-					{
+				} </CardTitle>
+				<CardDescription>
+				{
 					attributs.map((attribut, ind) => (
 						<>
 							<p key={attribut+ind}>{attribut}: {
 								item[attribut]
 							}</p>
+							
 						</>
 					))
-				} </div>
+				}
+				</CardDescription>
+					</CardHeader>	
+				
+				</Card>
+					 </div>
 			))
 		}
-			<div> {
+			<div className="flex flex-col gap-2"> {
 				attributs.map((attribut, ind) => (
 					<input key={attribut+ind} id={
 							"input" + tag + attribut + ind
 						}
 						type="text"
-						placeholder={attribut}/>
+						placeholder={attribut} className="p-2 outline-0 bg-theme-3/10 rouded-lg w-full rounded-lg "/>
 				))
 			}</div>
 		</div>
