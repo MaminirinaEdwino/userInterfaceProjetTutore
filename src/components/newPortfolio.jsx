@@ -8,7 +8,7 @@ import ModalSuccessCreatePortfolio from "./modalSuccesCreatePortfolio";
 import { CardTitle } from "./ui/card";
 
 export default function NewPortfolio({user}) {
-	const [step, setStep] = useState(3)
+	const [step, setStep] = useState(1)
     const [displayModal, setDisplayModal] = useState("none")
 	const [template, setTemplate] = useState(0)
 	const [loisir, setLoisir] = useState([])
@@ -117,7 +117,7 @@ export default function NewPortfolio({user}) {
 					value={lettre_introduction}/>
 				<SelectComponents id={"newTemplate"}
 					options={
-						['Choisir Template', 'template 1']
+						['Choisir Template', 'template 1', 'template 2', 'template 3', 'template 4', 'template 5', 'template 6', 'template 7']
 					}
 					value={template}
 					onchange={setTemplate}
